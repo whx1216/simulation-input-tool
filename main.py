@@ -9,7 +9,7 @@ from PySide6.QtWidgets import (
     QProgressBar,QHeaderView
 )
 from PySide6.QtCore import Qt, QThread, Signal
-from PySide6.QtGui import QClipboard, QKeySequence, QColor, QFont
+from PySide6.QtGui import QClipboard, QKeySequence, QColor, QFont, QIcon
 from pynput.keyboard import Controller, Key
 from global_hotkeys import register_hotkeys, start_checking_hotkeys, stop_checking_hotkeys
 
@@ -125,6 +125,7 @@ class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("剪贴板模拟输入工具")
+        self.setWindowIcon(QIcon("32x.ico"))  # Replace with the path to your icon file
         self.clipboard = QApplication.clipboard()
         self.clipboard_history = ClipboardHistory()
         self.hotkey_manager = HotkeyManager()
